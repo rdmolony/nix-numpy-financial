@@ -2,7 +2,9 @@
 
 This repository defines a `Nix` definition for building the `Python` library `numpy-financial` 
 
-## Installation
+---
+
+## Install `nix`
 
 Install `nix` ...
 
@@ -22,7 +24,28 @@ curl -L https://nixos.org/nix/install | sh -s -- --daemon
 > [!NOTE]
 > [`DeterminateSystems/nix-installer` ships with a `nix-uninstall` command if you want to easily remove it](https://github.com/DeterminateSystems/nix-installer/blob/ef23eb4d30c279547bdbe3026a0acaaf8bc680dc/README.md#uninstalling) 
 
-## Build
+---
+
+## `Nix Flake`
+
+Add ...
+
+```nix
+{
+  inputs = {
+    numpy-financial = {
+      url = "github:rdmolony/numpy-financial";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
+}
+```
+
+... to your `flake.nix` to install this `nix` derivation in your project. 
+
+---
+
+## Build Locally
 
 Via `nix-build` ...
 
